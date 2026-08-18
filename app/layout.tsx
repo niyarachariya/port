@@ -15,8 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PORTFOLIO / 2026 — Interactive Experience",
-  description: "Ideas that move with you. Interactive 151-frame character experience.",
+  title: "Niya Rachariya — Portfolio | ICT Mahidol Application",
+  description:
+    "Portfolio application for admission to the Faculty of Information and Communication Technology, Mahidol University.",
 };
 
 export default function RootLayout({
