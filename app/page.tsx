@@ -9,9 +9,11 @@ const SOURCE_CROP_TOP = 14;
 const SOURCE_CROP_BOTTOM = 8;
 const SOURCE_CROP_SIDES = 8;
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 function getFrameUrl(index: number): string {
   const frameNumber = String(index + 1).padStart(4, "0");
-  return `/experience/frames/frame-${frameNumber}.webp`;
+  return `${BASE_PATH}/experience/frames/frame-${frameNumber}.webp`;
 }
 
 export default function ExperiencePage() {
