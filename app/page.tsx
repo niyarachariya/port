@@ -117,28 +117,50 @@ export default function ExperiencePage() {
 
   // Preload all 151 frames
   useEffect(() => {
-    let loadedCount = 0;
+    console.log(`[Experience] BASE_PATH resolved to: "${BASE_PATH}"`);
+    console.log(`[Experience] first frame URL: ${getFrameUrl(0)}`);
+
+    let settledCount = 0;
+    let successCount = 0;
+    const failedUrls: string[] = [];
     const images: HTMLImageElement[] = new Array(TOTAL_FRAMES);
 
-    const onImageLoaded = () => {
-      loadedCount += 1;
+    const onSettled = () => {
+      settledCount += 1;
       const progress = Math.min(
         100,
-        Math.round((loadedCount / TOTAL_FRAMES) * 100)
+        Math.round((settledCount / TOTAL_FRAMES) * 100)
       );
       setLoadingProgress(progress);
 
-      if (loadedCount === TOTAL_FRAMES) {
+      if (settledCount === TOTAL_FRAMES) {
         imagesRef.current = images;
         setIsLoaded(true);
+        console.log(
+          `[Experience] preload complete: ${successCount}/${TOTAL_FRAMES} frames loaded successfully`
+        );
+        if (failedUrls.length > 0) {
+          console.warn(
+            `[Experience] ${failedUrls.length} frame(s) failed to load:`,
+            failedUrls
+          );
+        }
       }
     };
 
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image();
-      img.src = getFrameUrl(i);
-      img.onload = onImageLoaded;
-      img.onerror = onImageLoaded;
+      const url = getFrameUrl(i);
+      img.src = url;
+      img.onload = () => {
+        successCount += 1;
+        onSettled();
+      };
+      img.onerror = () => {
+        failedUrls.push(url);
+        console.error(`[Experience] failed to load frame: ${url}`);
+        onSettled();
+      };
       images[i] = img;
     }
 
