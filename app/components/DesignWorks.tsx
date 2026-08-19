@@ -62,9 +62,29 @@ function VideoTile({ src, title, poster }: VideoTileProps) {
   );
 }
 
+interface YoutubeEmbedProps {
+  youtubeId: string;
+  title: string;
+}
+
+function YoutubeEmbed({ youtubeId, title }: YoutubeEmbedProps) {
+  return (
+    <div className="design-card-youtube">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+        title={title}
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  );
+}
+
 export default function DesignWorks() {
   const [openId, setOpenId] = useState<string | null>(null);
-  const openItem = designWorks.find((d) => d.id === openId && d.type !== "video") ?? null;
+  const openItem =
+    designWorks.find((d) => d.id === openId && d.type === "image") ?? null;
 
   return (
     <section id="design" className="section design-section">
@@ -73,6 +93,18 @@ export default function DesignWorks() {
 
         <div className="design-grid">
           {designWorks.map((item) => {
+            if (item.type === "youtube" && item.youtubeId) {
+              return (
+                <div className="design-card design-card-video" key={item.id}>
+                  <YoutubeEmbed youtubeId={item.youtubeId} title={item.title} />
+                  <div className="design-card-caption">
+                    <span className="design-card-category">{item.category}</span>
+                    <span className="design-card-title">{item.title}</span>
+                  </div>
+                </div>
+              );
+            }
+
             if (item.type === "video" && item.video) {
               return (
                 <div className="design-card design-card-video" key={item.id}>

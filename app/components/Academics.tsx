@@ -1,6 +1,5 @@
 import SectionHeading from "./SectionHeading";
-import PlaceholderImage from "./PlaceholderImage";
-import { academicResults, academicGallery } from "../data/academics";
+import { academicResults } from "../data/academics";
 
 export default function Academics() {
   return (
@@ -38,18 +37,6 @@ export default function Academics() {
                 <span>GPA: {row.gpa}</span>
               </div>
             </div>
-          ))}
-        </div>
-
-        <div className="academic-gallery">
-          {academicGallery.map((src, i) => (
-            <PlaceholderImage
-              key={src}
-              src={src}
-              alt={`Culinary activity photo ${i + 1}`}
-              label={`Activity Photo ${i + 1}`}
-              className="academic-gallery-item"
-            />
           ))}
         </div>
       </div>

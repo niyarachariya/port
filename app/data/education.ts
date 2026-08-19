@@ -24,7 +24,7 @@ export const educationTimeline: EducationEntry[] = [
   {
     years: "2015 – 2021",
     level: "Primary School",
-    school: "Assumption Primary School",
+    school: "Assumption College Primary Section",
     gpa: "2.73",
   },
 ];
