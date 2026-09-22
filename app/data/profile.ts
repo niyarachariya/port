@@ -10,8 +10,8 @@ export const profile = {
   grade: "Mathayom 6",
   major: "Food Hospitality and Communicative Language (FH)",
   studyTrack: "Arts – Mathematics (Equivalent)",
-  faculty: "Information and Communication Technology (International Program)",
-  university: "Mahidol University",
+  faculty: "Technology, Design & Creative Projects",
+  university: "Ideas, Learning & Experiences",
   applicationType: "Portfolio Application for Admission",
 };
 

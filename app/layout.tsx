@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Niya Rachariya — Portfolio | ICT Mahidol Application",
+  title: "Niya Rachariya — Portfolio",
   description:
-    "Portfolio application for admission to the Faculty of Information and Communication Technology, Mahidol University.",
+    "Niya Rachariya's student portfolio: education, activities, technology projects and design work for university admission.",
 };
 
 export default function RootLayout({

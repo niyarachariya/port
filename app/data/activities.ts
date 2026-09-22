@@ -63,11 +63,11 @@ export const activities: ActivityEntry[] = [
   },
   {
     id: "ict-mahidol-open-house",
-    title: "ICT Mahidol Open House",
-    institution: "Faculty of Information and Communication Technology, Mahidol University",
+    title: "University Open House",
+    institution: "University Open House Program",
     year: "2025",
     description:
-      "Attended the ICT Mahidol Open House to learn more about the ICT program, student life, and projects created by ICT students. It was a great opportunity to experience the atmosphere of the faculty and see what life as an ICT student could be like.",
+      "Attended a university open house to explore technology programs, student life, and student projects. This experience helped me learn more about university study and consider my future learning opportunities.",
     images: ["/portfolio/activities/ict-mahidol-open-house.jpg"],
   },
   {
